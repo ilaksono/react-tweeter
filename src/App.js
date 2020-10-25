@@ -40,11 +40,9 @@ function App() {
   }
 
 
-
-
   return (
     <div className="App" id='top'>
-      <Navigation />
+      <Navigation/>
       <div className='media-container'>
         <Profile />
         <main className='container'>

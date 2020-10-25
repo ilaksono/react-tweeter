@@ -18,15 +18,15 @@ export const TweetForm = (props) => {
     setTweetText(event.target.value)
   }
   const errStyle = { display: err ? 'block' : 'none' };
+  const [inFocus, setInFocus] = useState(false);
+
+  useEffect(() => {
+    document.getElementById('tweet-text').addEventListener('focus', () => setInFocus(true))
+    document.getElementById('tweet-text').addEventListener('blur', () => setInFocus(false))
+    
+  },[inFocus])
   const submitTweet = event => {
     event.preventDefault();
-    // const newTweet = {
-    //   text:tweetText,
-    //   name: 'Ian',
-    //   handle: '@il',
-    //   profile_image: 'https://i.imgur.com/73hZDYK.png',
-    //   date: new Date().toUTCString()
-    // }
     if (remainChars >= 0 && remainChars < 140) {
       props.addNewTweet(tweetText)
       setTweetText('');
