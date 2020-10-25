@@ -14,7 +14,7 @@ form {
           align-items: normal;
 }
 
-form textarea {
+form input {
   resize: none;
   border: none;
   white-space: textwrap;

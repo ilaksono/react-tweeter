@@ -60,13 +60,16 @@ article header {
 }
 
 article img {
-  opacity: 0.3;
+  /* opacity: 0.3; */
   width: 40px;
 }
 
 article div {
   justify-self: flex-end;
-  opacity: 0;
+  /* opacity: 0; */
+}
+.icon-container {
+  opacity: 0.55;
 }
 
 article div img {

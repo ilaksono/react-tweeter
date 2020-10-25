@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import './layout.css';
 
 import './TweetForm.css';
@@ -14,7 +14,7 @@ export const TweetForm = (props) => {
     setErr('');
     setTweetText(event.target.value)
   }
-  const errStyle = {display: err ? 'block' : 'none'};
+  const errStyle = { display: err ? 'block' : 'none' };
   const submitTweet = event => {
     event.preventDefault();
     // const newTweet = {
@@ -24,27 +24,25 @@ export const TweetForm = (props) => {
     //   profile_image: 'https://i.imgur.com/73hZDYK.png',
     //   date: new Date().toUTCString()
     // }
-
     if (remainChars >= 0 && remainChars < 140) {
       props.addNewTweet(tweetText)
       setTweetText('');
       setErr('');
     }
-    else if(remainChars < 0) {
+    else if (remainChars < 0) {
       setErr('Too many chars');
     }
     else
       setErr('Cannot be empty');
   }
-
   return (
     <section className="new-tweet">
       <form onSubmit={submitTweet} className="new-tweet--form">
-        <textarea onChange={newText} value={tweetText} name="text" id="tweet-text" rows="3" placeholder="What are you humming about?"></textarea>
+        <input onChange={newText} value={tweetText} name="text" id="tweet-text" rows="3" placeholder="What are you humming about?" />
         <div>
           <button type="submit">Tweet</button>
-  <span className="error" style={errStyle}>{err}</span>
-  <output style={spanStyle} className='counter' name="counter" for="tweet-text">{140 - tweetText.length}</output>
+          <span className="error" style={errStyle}>{err}</span>
+          <output style={spanStyle} className='counter' name="counter" for="tweet-text">{140 - tweetText.length}</output>
         </div>
       </form>
     </section>
