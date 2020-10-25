@@ -9,6 +9,9 @@ export const TweetForm = (props) => {
   const spanStyle = {
     color
   }
+  useEffect(() => {
+    document.getElementById('tweet-text').focus();
+  },[])
   const [err, setErr] = useState('');
   const newText = (event) => {
     setErr('');

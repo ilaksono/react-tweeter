@@ -4,20 +4,20 @@ import { Navigation } from './components/Navigation.js';
 import { Profile } from './components/Profile.js';
 import { TweetForm } from './components/TweetForm.js';
 import { Tweet } from './components/Tweet.js';
-
+import { Anchor } from './components/Anchor.js';
 const initialData = [
   {
     name: 'Ian L',
     handle: '@ilaks',
     profile_image: "https://i.imgur.com/73hZDYK.png",
-    text: 'This is some text rawr',
+    text: 'This is some text',
     date: '10 days ago'
   },
   {
-    name: 'Lian Mel',
-    handle: '@asdass',
+    name: `Ian's Enemies`,
+    handle: '@baddie',
     profile_image: "https://i.imgur.com/73hZDYK.png",
-    text: 'This is some flexed',
+    text: 'I am sad',
     date: '9 days ago'
   }
 ]
@@ -29,7 +29,7 @@ function App() {
   const addNewTweet = (tweetText) => {
     const newTweet = {
       name: 'Ian',
-      handle: '@asd',
+      handle: '@ilaks',
       profile_image: "https://i.imgur.com/73hZDYK.png",
       text: tweetText,
       date: new Date().toDateString()
@@ -39,16 +39,12 @@ function App() {
     setTweetData([...tweetsData, newTweet]);
   }
 
-  useEffect(() => {
-    const btn = document.getElementById('nav-btn');
-    btn.addEventListener('click', () => {
-      document.getElementById('tweet-text').focus();
-    })
-  }, []);
+
+
 
   return (
-    <div className="App">
-      <Navigation/>
+    <div className="App" id='top'>
+      <Navigation />
       <div className='media-container'>
         <Profile />
         <main className='container'>
@@ -56,6 +52,7 @@ function App() {
           <section className='tweet-log'>{tweets}</section>
         </main>
       </div>
+      <Anchor />
     </div>
   );
 }
